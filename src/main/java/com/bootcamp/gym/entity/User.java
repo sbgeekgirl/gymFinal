@@ -17,7 +17,7 @@ import lombok.ToString;
 
 @Data
 @Entity
-@Table(name="Users")
+@Table(name="users")
 public class User {
 	
 	@Id

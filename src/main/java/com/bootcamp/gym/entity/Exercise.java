@@ -19,7 +19,7 @@ import lombok.ToString;
 
 @Data
 @Entity
-@Table(name="Exercises")
+@Table(name="exercises")
 public class Exercise {
 	
 	@Id

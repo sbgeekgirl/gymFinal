@@ -15,7 +15,7 @@ import lombok.ToString;
 
 @Data
 @Entity
-@Table(name="Entries")
+@Table(name="entries")
 public class Entry {
 	
 	@Id
@@ -27,9 +27,6 @@ public class Entry {
 	
 	@Column(name="weight")
 	private int weight;
-	
-	@Column(name="user_id")
-	private int user_id;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
