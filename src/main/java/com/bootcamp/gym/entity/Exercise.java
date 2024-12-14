@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,8 +30,17 @@ public class Exercise {
 	@Column(name="exercise_name")
 	private String exercise_name;
 	
-	@Column(name="category_id")
-	private int category_id;
+	@Column(name="exercise_description")
+	private String exercise_description;
+	
+	@Column(name="exercise_equipment")
+	private String exercise_equipment;
+	
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
@@ -42,3 +52,4 @@ public class Exercise {
 
 }
 
+//20:32 in same video - @ToString.Exclude only in Entry, not here

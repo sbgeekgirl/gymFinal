@@ -8,7 +8,7 @@ public interface UserService {
 	
 	// GET all users
 	public List<User> getAllUsers();
-	
+	List<User> users = 
 	//CREATE a user
 	public User saveUser(User user);
 	

@@ -30,10 +30,14 @@ public class User {
 	@Column(name="user_last_name")
 	private String user_last_name;
 	
-	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@EqualsAndHashCode.Exclude
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval =  true)
 	private Set<Entry> entries = new HashSet<>();
 	
-
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval =  true)
+	private Set<Exercise> exercises = new HashSet<>();
 }
+

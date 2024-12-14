@@ -9,8 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -31,11 +29,19 @@ public class Category {
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name = "exercise_category",
-		joinColumns = @JoinColumn(name="exercise_id"),
-		inverseJoinColumns = @JoinColumn(name = "category_id"))
+	@ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST)
 	private Set<Exercise> exercises = new HashSet<>();
 
 
 }
+
+
+/*
+ * Removed 	
+ * @JoinTable(name = "exercise_category",
+ * joinColumns = @JoinColumn(name="exercise_id"),
+ * inverseJoinColumns = @JoinColumn(name = "category_id"))
+ * 
+ * per dog rescue creating entities video 15:27
+ * Replaced with mapped by
+ */

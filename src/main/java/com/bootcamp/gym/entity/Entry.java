@@ -25,8 +25,11 @@ public class Entry {
 	@Column(name="reps")
 	private int reps;
 	
-	@Column(name="weight")
-	private int weight;
+	@Column(name="rounds")
+	private int rounds;
+	
+	@Column(name="wgt")
+	private int wgt;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
@@ -34,5 +37,4 @@ public class Entry {
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 	
-
 }
